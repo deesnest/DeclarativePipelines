@@ -4,6 +4,7 @@ pipeline {
         stage('build1') {
             steps {
                 sh 'cd /home/ec2-user/workspace/cproject'
+                chmod 777 makefile
                 sh 'make'
             }
         }
