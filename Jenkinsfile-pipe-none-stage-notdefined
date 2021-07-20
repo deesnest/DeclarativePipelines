@@ -2,8 +2,7 @@ pipeline {
 	agent none  
 	stages {
 		stage('BUILD') {
-			agent any
-      steps {
+			  steps {
 				sh '''
 					pwd
 					sleep 5
@@ -13,8 +12,7 @@ pipeline {
 		}
 		
 		stage('TEST') {
-    agent any
-			steps {
+    			steps {
 				sh '''
 					pwd
 					sleep 5
@@ -24,8 +22,7 @@ pipeline {
 		}
 		
 		stage('DEPLOY') {
-			 agent any
-      steps {
+		      steps {
 				sh '''
 					pwd
 					sleep 5
