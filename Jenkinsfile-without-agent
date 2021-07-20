@@ -1,8 +1,7 @@
 pipeline {
 	stages {
 		stage('BUILD') {
-			agent any
-      steps {
+			      steps {
 				sh '''
 					pwd
 					sleep 5
