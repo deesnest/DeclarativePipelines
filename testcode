@@ -12,9 +12,7 @@ pipeline {
         
         stage('build2') {
             steps {
-               sh 'cd /home/ec2-user/workspace/cproject'
-                chmod 777 makefile
-                sh 'make'
+              sh echo '"successful"'
             }
         }
     }
