@@ -1,7 +1,7 @@
 pipeline{
 agent any
    stages{
-     stage{
+     stage('BUILD'){
         steps{
            sh '''
               echo 'this code checks wether the following command executed or not'
