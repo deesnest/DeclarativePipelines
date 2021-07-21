@@ -1,7 +1,7 @@
+parallel{
 pipeline{
    agent any
-  parallel{
-   stages{
+     stages{
         stage('BUILD'){
            steps{
               echo ''' this is the demo for
@@ -23,5 +23,5 @@ pipeline{
                    } //end of steps
               } //end of stage TEST
             }//end of stages
-          }//end of parallel
-      }//end of pipeline
+          }//end of pipeline
+      }//end of parallel
