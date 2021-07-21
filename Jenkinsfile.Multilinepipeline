@@ -7,7 +7,7 @@ pipeline{
  multiline printing using
  declarative pipeline '''
               
-             echo -e "\n These are the following files listed in the current directory\n"
+             echo -e '\n These are the following files listed in the current directory\n'
              sh 'ls -l'
                 }
              }
