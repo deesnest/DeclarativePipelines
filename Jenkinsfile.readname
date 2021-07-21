@@ -1,0 +1,9 @@
+pipeline{
+agent any
+stages{
+stage('BUILD'){
+    steps{
+       sh '''
+           name=read 'Enter you name'
+           echo 'the name entered is $name'
+           '''
