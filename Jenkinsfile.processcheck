@@ -6,9 +6,9 @@ agent any
            sh '''
               echo 'this code checks wether the following command executed or not'
               pwd
-              if[$? -eq 0];then
+              if[$? -eq 0]then
               echo 'command successful'
-              elif[$? -ne 0];then
+              elif[$? -ne 0]then
               echo "command unsuccessful'
               fi
               '''
