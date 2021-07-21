@@ -1,7 +1,7 @@
 pipeline{
    agent any
    stages{
-        stage{
+        stage('BUILD'){
            steps{
               echo ''' this is the demo for
                        multiline printing using
