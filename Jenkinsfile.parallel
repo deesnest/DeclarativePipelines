@@ -1,0 +1,31 @@
+pipeline {
+  agent any
+  stages {
+    stage('Non-Parallel Stage') {
+      steps {
+        echo 'This stage will be executed first.'
+      }//end of steps
+    }//end of stage
+    
+   stage('Parallel Stage') {
+     // when {
+       // branch 'master'
+      //}
+      //failFast true
+    
+     parallel {
+        stage('Branch A') {
+          steps {
+            echo "On Branch A"
+          }//end of steps
+        }//end of stage
+      
+      stage('Branch B') {
+         steps {
+            echo "On Branch B"
+          }//end of steps
+        }//end of stage
+      }//end of parallel
+    }//end of parallel stage
+  }//end of stages
+} //end of pipeline
