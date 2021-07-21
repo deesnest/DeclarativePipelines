@@ -1,6 +1,7 @@
 pipeline{
    agent any
    stages{
+   parallel{
         stage('BUILD'){
            steps{
               echo ''' this is the demo for
@@ -10,15 +11,17 @@ pipeline{
              echo -e "\n These are the following files listed in the current directory\n"
              ls -l
              '''
-                }
-             }
+                }//end of steps
+             }//end of stage
+          
  stage('TEST'){
                steps{
                sh '''
                   echo -e "\nChecking for Jenking service status\n"
                   ps -ef|grep -i "jenkins"
                  '''
-                   }
-              }
-          }
-      }
+                   } //end of steps
+              } //end of stage TEST
+            }//end of parallel
+          }//end of stages
+      }//end of pipeline
