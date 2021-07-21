@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PI=3.14
+        PI=3
       }
 
     stages {
@@ -17,7 +17,7 @@ pipeline {
         stage('BUILD1'){
              steps{
                  sh '''
-                    area=$(( ${PI} + ${radius} + ${radius} ))
+                    area=${(( ${PI} + ${radius} + ${radius} ))}
                     echo "Area of a circle is  $area"
                      
                     '''
