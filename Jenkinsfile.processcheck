@@ -6,7 +6,7 @@ agent any
            sh '''
               echo 'this code checks wether the following command executed or not'
               pwd
-              if[ $? -eq 0 ]
+              if [ $? == 0 ]
               then
               echo 'command successful'
               else
