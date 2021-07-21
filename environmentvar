@@ -17,8 +17,7 @@ pipeline {
         stage('BUILD1'){
              steps{
                  sh '''
-                    area=`expr "3.14*$radius*$radius"|bc`
-
+                    area=$(( ${PI} + ${radius} + ${radius} ))
                     echo "Area of a circle is  $area"
                      
                     '''
