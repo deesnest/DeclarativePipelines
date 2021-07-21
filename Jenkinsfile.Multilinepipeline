@@ -6,8 +6,10 @@ pipeline{
               echo ''' this is the demo for
  multiline printing using
  declarative pipeline '''
-             sh 'echo -e \n These are the following files listed in the current directory\n'
-             sh 'ls'
+             sh '''
+             echo -e "\n These are the following files listed in the current directory\n"
+             ls -l
+             '''
                 }
              }
           }
