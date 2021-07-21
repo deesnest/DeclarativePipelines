@@ -12,5 +12,13 @@ pipeline{
              '''
                 }
              }
+ stage('TEST'){
+               steps{
+               sh '''
+                  echo -e "\nChecking for Jenking service status\n"
+                  ps -ef|grep -i "jenkins"
+                 '''
+                   }
+              }
           }
       }
