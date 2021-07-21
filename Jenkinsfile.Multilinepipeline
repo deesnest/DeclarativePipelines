@@ -1,7 +1,8 @@
-parallel{
+
 pipeline{
    agent any
      stages{
+        parallel{
         stage('BUILD'){
            steps{
               echo ''' this is the demo for
