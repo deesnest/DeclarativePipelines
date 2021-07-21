@@ -24,5 +24,10 @@ pipeline {
         changed {
             echo 'Things were different before...'
         }
+        success {
+             mail to: 'deepa.sce@gmail.com',
+             subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
+             body: "working fine: ${env.BUILD_URL}"
+    }
     }
 }
