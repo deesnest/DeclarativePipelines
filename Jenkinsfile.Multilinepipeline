@@ -4,8 +4,8 @@ pipeline{
         stage('BUILD'){
            steps{
               echo ''' this is the demo for
-                       multiline printing using
-                       declarative pipeline '''
+ multiline printing using
+ declarative pipeline '''
                 }
              }
           }
