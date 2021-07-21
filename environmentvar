@@ -1,17 +1,25 @@
 pipeline {
     agent any
     environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-    }
+        PI=3.14
+      }
 
     stages {
         stage('Build') {
             steps {
-                echo "Database engine is ${DB_ENGINE}"
-                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
-                sh 'printenv'
+                
+                sh '''
+                 echo "The value of PI is ${PI}"
+                //echo "DISABLE_AUTH is ${DISABLE_AUTH}"
+                //sh 'printenv'
+            '''
             }
         }
+        
+        stage('BUILD1'){
+             steps{
+                 sh '''
+                    area= $(( PI * ${radius} * ${radius} ))
+                    echo ${area}
     }
 }
