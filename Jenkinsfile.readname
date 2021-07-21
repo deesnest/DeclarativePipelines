@@ -7,3 +7,7 @@ stage('BUILD'){
            name=read 'Enter you name'
            echo 'the name entered is $name'
            '''
+         }
+         }
+         }
+         }
