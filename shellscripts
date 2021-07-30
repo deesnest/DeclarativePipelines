@@ -1,0 +1,35 @@
+pipeline{
+agent any
+stage ("stage1"){
+steps{
+     sh 'who'
+     }
+     }
+     stage("Stage2"){
+     steps{
+         sh 'ln -s mylink /var/lib/jenkins/workspace $HOME'
+         }
+         }
+         stage("stage3"){
+         steps{
+         sh 'df -h $HOME|awk -F " " '{print $2}''
+         }
+         }
+         stage("stage4"){
+         steps{
+          sh '''
+               touch test
+               ps -ef | grep "java"|awk -F " " '{print $1,2}'>test
+              '''
+           }
+           {
+           post{
+              success{
+                   sh '''
+                        cd $HOME
+                        rm mylink
+                        '''
+                        }
+                        }
+                        
+                        }
