@@ -62,7 +62,7 @@ pipeline {
                  sudo docker images|head -2|tail -1| awk -F " " '{print $3}'>imageid
                  img=`cat imageid`
                  name=cbuild
-                 imgname=$name+$img
+                 imgname=$name$img
                  echo $imgname
                  sudo kubectl run $imgname --image=deepatp/test_repo:1.0
                  sudo kubectl get pods
