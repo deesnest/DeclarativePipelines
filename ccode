@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build1') {
             steps {
-                if [ -f .git ]
+                if[ -f .git ]
                 then
                   cd devtest
                 gcc -c main.c fact.c palin.c rev.c sum.c
