@@ -44,8 +44,8 @@ pipeline {
             sh '''
                      sudo docker pull ubuntu
   
-                sudo docker run -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe:/home/ubuntu/cbuild ubuntu:latest
-                sudo docker commit 7c1270806aa1 build:v2
+                k=sudo docker run -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe:/home/ubuntu/cbuild ubuntu:latest
+                sudo docker commit $k build:v2
                 sudo docker tag build:v2 deepatp/cbuild:1.0
                 sudo docker push deepatp/cbuild:1.0
              '''
