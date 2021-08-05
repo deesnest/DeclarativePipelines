@@ -4,7 +4,7 @@ pipeline {
         stage('build1') {
             steps {
                 sh '''
-                if [ -f .git]
+                if [ -f .git ]
                 then
                   ls -l
                 cd java-tomcat-maven-example
