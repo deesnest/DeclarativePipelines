@@ -59,8 +59,8 @@ pipeline {
         agent {label "kubeagent"}
             steps {
             sh '''  
-                 sudo docker images | head -2|tail -1| awk -F " " '{print $3}'>imageid
-                 img='cat imageid`
+                 sudo docker images|head -2|tail -1| awk -F " " '{print $3}'>imageid
+                 img=`cat imageid`
                  imgname=cbuild$image
                  echo $imgname
                  sudo kubectl run imgname --image=deepatp/test_repo:1.0
