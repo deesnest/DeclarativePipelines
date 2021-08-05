@@ -1,0 +1,18 @@
+pipeline {
+    agent {label "Agent Java"}
+    stages {
+        stage('build1') {
+            steps {
+                sh '''
+                #git init
+                #git clone https://github.com/deesnest/devtest.git
+                ls -l
+                cd java-tomcat-maven-example
+                mvn install                    
+              
+                      '''
+            }
+        }
+        
+    }
+}
