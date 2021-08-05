@@ -17,6 +17,7 @@ pipeline {
                  fi                 
               
                       '''
+                 echo "java project build successful"
             }
         }
         
