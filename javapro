@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh '''
                 #git init
-                #git clone https://github.com/deesnest/devtest.git
+                #git clone https://github.com/deesnest/java-tomcat-maven-example.git
                 ls -l
                 cd java-tomcat-maven-example
                 mvn install                    
