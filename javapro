@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                  
-                if [ ! -f .git ] && [ ! -d java-tomcat-maven-example.git ]
+                if [ ! -f .git ] && [ ! -d java-tomcat-maven-example]
                 then
                 git init
                 git clone https://github.com/deesnest/java-tomcat-maven-example.git
