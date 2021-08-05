@@ -13,7 +13,7 @@ pipeline {
                 gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o
                 git add *
                 git commit -m "added"
-                git config credential.helper store
+                #git config credential.helper store
                 #git push https://github.com/deesnest/devtest.git
                 #Username for 'https://github.com/deesnest': deesnest
                 #Password for 'https://USERNAME@github.com': deepaanu123
