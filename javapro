@@ -28,10 +28,10 @@ pipeline {
                 then
                 mkdir jbuild
                 else
-                path=$PWD
-                cp $path/*.jar $path/jbuild
+              #  path=$PWD
+              #  cp $path/*.jar $path/jbuild
                 echo "Java project Build Successful"
-                echo $PWD
+               # echo $PWD
                 fi
                   
                  '''
