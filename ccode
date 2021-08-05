@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('build1') {
             steps {
+            sh '''
                 if [ -f .git ]
                 then
                   cd devtest
@@ -17,6 +18,7 @@ pipeline {
                 gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o 
                  fi      
                  echo "C project Build Successful"
+                 '''
                
               }
         }
