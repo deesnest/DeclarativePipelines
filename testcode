@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build1') {
             steps {
-                sh 'cd /home/ubuntu'
+                sh 'cd /home/ubuntu/workspace/cproject'
                 sh  'gcc -c main.c fact.c palin.c rev.c prime.c'
                 sh 'gcc -o ABC.exe main.o fact.o palin.o rev.o prime.o'
                 sh './ABC.exe'
