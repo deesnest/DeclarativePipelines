@@ -7,6 +7,7 @@ pipeline {
                 sh '''
                 #git init
                 #git clone https://github.com/deesnest/devtest.git
+                rm ABC.exe
                 ls -l
                 cd devtest
                 gcc -c main.c fact.c palin.c rev.c sum.c
@@ -22,10 +23,5 @@ pipeline {
             }
         }
         
-        stage('build2') {
-            steps {
-              sh 'echo "successful"'
-            }
-        }
     }
 }
