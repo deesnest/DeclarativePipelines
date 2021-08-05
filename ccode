@@ -58,10 +58,9 @@ pipeline {
         stage('pods') {
         agent {label "kubeagent"}
             steps {
-            sh '''  cp /home/ubuntu/kubernetes.pem $PWD
-                    sudo chmod 400 kubernetes.pem
-                    ssh -i "kubernetes.pem" ubuntu@ec2-65-0-179-142.ap-south-1.compute.amazonaws.com
-                    sudo kubectl run cbuild --image=deepatp/test_repo:1.0
+            sh '''  
+                 sudo kubectl run cbuild --image=deepatp/test_repo:1.0
+                 sudo kubectl get pods
              '''
                
               }
