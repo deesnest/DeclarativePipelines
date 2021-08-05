@@ -15,8 +15,7 @@ pipeline {
                   cd java-tomcat-maven-example
                   mvn install
                  fi                 
-              
-                      '''
+                 '''
              }
         }
         
