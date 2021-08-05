@@ -39,7 +39,7 @@ pipeline {
               }
         }
         stage('buildimage') {
-        agent {label "kubeagent"}
+        agent {label "Agent C"}
             steps {
             sh '''
                      sudo docker pull ubuntu
@@ -56,6 +56,7 @@ pipeline {
               }
         }
         stage('pods') {
+        agent {label "kubeagent"}
             steps {
             sh '''  cp /home/ubuntu/kubernetes.pem $PWD
                     sudo chmod 400 kubernetes.pem
