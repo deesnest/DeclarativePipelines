@@ -1,8 +1,9 @@
   
 pipeline {
-    agent {label "Agent C"}
+    agent none
     stages {
        stage('gitinit') {
+       agent {label "Agent C"}
             steps {
                 sh '''
                  
@@ -16,6 +17,7 @@ pipeline {
              }
         }
         stage('build1') {
+        agent {label "Agent C"}
             steps {
             sh '''
                 #git pull https://github.com/deesnest/devtest
@@ -37,6 +39,7 @@ pipeline {
               }
         }
         stage('buildimage') {
+        agent {label "kubeagent"}
             steps {
             sh '''
                      sudo docker pull ubuntu
