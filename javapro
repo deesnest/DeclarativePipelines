@@ -42,11 +42,11 @@ pipeline {
         agent {label "Agent Java"}
             steps {
             sh '''
-               sudo docker -version
-               if [ $? -ne 0 ]
-               then
-                  echo "Docker already installed"
-                else
+               #sudo docker -version
+               #if [ $? -ne 0 ]
+               #then
+                #  echo "Docker already installed"
+                #else
                   sudo apt update -y
                   sudo apt-get -y install apt-transport-https ca-certificates  curl gnupg lsb-release
                   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -54,7 +54,7 @@ pipeline {
                   sudo apt update -y
                   sudo apt-get install -y docker-ce docker-ce-cli containerd.io
                   docker login --username deepatp --password rathna4582
-                fi                
+                #fi                
                  '''
              }
         } 
