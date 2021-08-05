@@ -4,9 +4,9 @@ pipeline {
         stage('build1') {
             steps {
                 sh '''
-                     cd ~/workspace/cproject'
-                     gcc -c main.c fact.c palin.c rev.c sum.c'
-                     gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o'
+                     cd workspace/cproject
+                     gcc -c main.c fact.c palin.c rev.c sum.c
+                     gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o
                      ./ABC.exe'''
             }
         }
