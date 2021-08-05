@@ -1,6 +1,19 @@
 pipeline {
     agent {label "Agent Java"}
     stages {
+     stage('gitinit') {
+            steps {
+                sh '''
+                 
+                if [ ! -f .git ]
+                then
+                git init
+                git clone https://github.com/deesnest/java-tomcat-maven-example.git
+                fi
+                  
+                 '''
+             }
+        }
         stage('build1') {
             steps {
                 sh '''
