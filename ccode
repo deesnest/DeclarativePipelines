@@ -36,6 +36,15 @@ pipeline {
                
               }
         }
-        
+        stage('buildimage') {
+            steps {
+            sh '''
+               docker pull ubuntu
+  
+                docker run it -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe /home/ubuntu/cbuild/ ubuntu:latest /bin/bash
+                 '''
+               
+              }
+        }
     }
 }
