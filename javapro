@@ -1,7 +1,8 @@
 pipeline {
-    agent {label "Agent Java"}
-    stages {
+    agent none
+   stages {
      stage('gitinit') {
+     agent {label "Agent Java"}
             steps {
                 sh '''
                  
@@ -15,6 +16,7 @@ pipeline {
              }
         }
         stage('build1') {
+        agent {label "Agent Java"}
             steps {
                 sh '''
                  
@@ -36,5 +38,60 @@ pipeline {
              }
         }
         
+          stage('cokerinstall') {
+        agent {label "Agent Java"}
+            steps {
+            sh '''
+               sudo docker --version
+               if [ $? -eq 1 ]
+               then
+                  sudo apt update -y
+                  sudo apt-get -y install apt-transport-https ca-certificates  curl gnupg lsb-release
+                  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+                  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+                  sudo apt update -y
+                  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+                  docker login --username deepatp --password rathna4582
+                else
+                  echo "Docker already installed"
+                fi                
+                 '''
+             }
+        } 
+        
+        
+        stage('buildimage') {
+        agent {label "Agent Java"}
+            steps {
+            sh '''
+              
+                sudo docker pull ubuntu
+                sudo docker run -v /home/ubuntu/workspace/javapronew/java-tomcat-maven-example/target/java-tomcat-maven-example.war:/home/ubuntu/javabuild ubuntu:latest
+                sudo docker ps -a |head -2|tail -1|awk -F " " '{print $1}'>cid
+                k=`cat cid`
+                echo "container $k successfully created"
+                sudo docker commit $k build:v2
+                sudo docker tag build:v2 deepatp/cbuild:1.0
+                sudo docker login --username deepatp --password rathna4582
+                sudo docker push deepatp/javabuild:1.0
+                 '''
+               
+              }
+        }
+        stage('pods') {
+        agent {label "kubeagent"}
+            steps {
+            sh '''  
+                 sudo docker images|head -2|tail -1| awk -F " " '{print $3}'
+                 img=`shuf -i 0-1000 -n 1`
+                 name=cbuild
+                 imgname=$name$img
+                 echo $imgname
+                 sudo kubectl run $imgname --image=deepatp/test_repo:1.0
+                 sudo kubectl get pods
+             '''
+               
+              }
+        }
     }
 }
