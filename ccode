@@ -7,7 +7,6 @@ pipeline {
                 sh '''
                 git init
                 git clone https://github.com/deesnest/devtest.git
-                git pull https://github.com/deesnest/devtest.git
                 make
                 git add *
                 git commit -m "added"
