@@ -20,7 +20,17 @@ pipeline {
                  
                   ls -l
                 cd java-tomcat-maven-example
+                pwd
                 mvn install
+                if [ ! -d jbuild ]
+                then
+                mkdir jbuild
+                else
+                path=$PWD
+                cp $path/*.jar $path/jbuild
+                echo "Java project Build Successful"
+                echo $PWD
+                fi
                   
                  '''
              }
