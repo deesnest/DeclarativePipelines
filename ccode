@@ -20,12 +20,16 @@ pipeline {
             sh '''
                 cd devtest
                 gcc -c main.c fact.c palin.c rev.c sum.c
-                gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o 
+                gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o
+                if [ ! -d cbuild ]
+                then
                 mkdir cbuild
+                else
                 path=$PWD
                 cp $path/ABC.exe $path/cbuild
                 echo "C project Build Successful"
                 echo $PWD
+                fi
                  '''
                
               }
