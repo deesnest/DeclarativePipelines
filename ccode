@@ -2,6 +2,19 @@
 pipeline {
     agent {label "Agent C"}
     stages {
+       stage('gitinit') {
+            steps {
+                sh '''
+                 
+                if [ ! -f .git ] && [! -d devtest ]
+                then
+                git init
+                git clone https://github.com/deesnest/devtest
+                fi
+                  
+                 '''
+             }
+        }
         stage('build1') {
             steps {
             sh '''
