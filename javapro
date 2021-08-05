@@ -42,7 +42,7 @@ pipeline {
         agent {label "Agent Java"}
             steps {
             sh '''
-               sudo docker --version
+               sudo docker -version
                if [ $? -ne 0 ]
                then
                   echo "Docker already installed"
