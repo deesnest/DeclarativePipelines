@@ -15,7 +15,7 @@ pipeline {
                 git commit -m "added"
                 git config credential.helper store
                 git push https://github.com/deesnest/devtest.git
-                Username for 'https://github.com': deesnest
+                Username for 'https://github.com/deesnest': deesnest
                 Password for 'https://USERNAME@github.com': deepaanu123
                 
                       '''
