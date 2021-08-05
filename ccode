@@ -47,11 +47,14 @@ pipeline {
                 sudo docker run -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe:/home/ubuntu/cbuild ubuntu:latest
                 sudo docker ps -a |head -2|tail -1|awk -F " " '{print $1}'>cid
                 k=`cat cid`
+                echo "container $k successfully created"
                 sudo docker commit $k build:v2
                 sudo docker tag build:v2 deepatp/cbuild:1.0
                 sudo docker login --username deepatp --password rathna4582
-                sudo docker push deepatp/cbuild:1.0
-             '''
+                sudo docker push deepatp/cbuild:1.0>pid
+                pushid=`cat pid`|awk -F " " '{pint $3}'
+                echo "build successfully pushed to the registry with name $pushid"
+                '''
                
               }
         }
