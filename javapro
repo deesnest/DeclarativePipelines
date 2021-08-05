@@ -43,7 +43,7 @@ pipeline {
             steps {
             sh '''
                sudo docker --version
-               if [ $? -eq 1 ]
+               if [ $? -ne 0 ]
                then
                   echo "Docker already installed"
                 else
