@@ -41,7 +41,7 @@ pipeline {
             sh '''
                      sudo docker pull ubuntu
   
-                sudo docker run -it -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe:/home/ubuntu/cbuild ubuntu:latest /bin/bash
+                sudo docker run -it -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe:/home/ubuntu/cbuild ubuntu:latest
                  '''
                
               }
