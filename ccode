@@ -49,6 +49,7 @@ pipeline {
                 k=`cat cid`
                 sudo docker commit $k build:v2
                 sudo docker tag build:v2 deepatp/cbuild:1.0
+                sudo docker login --username deepatp --password rathna4582
                 sudo docker push deepatp/cbuild:1.0
              '''
                
