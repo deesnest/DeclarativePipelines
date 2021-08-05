@@ -5,8 +5,8 @@ pipeline {
         stage('build1') {
             steps {
                 sh '''
-                git init
-                git clone https://github.com/deesnest/devtest.git
+                #git init
+                #git clone https://github.com/deesnest/devtest.git
                 ls -l
                 gcc -c *.c
                 gcc -c main.c fact.c palin.c rev.c sum.c
