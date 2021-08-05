@@ -45,7 +45,8 @@ pipeline {
                      sudo docker pull ubuntu
   
                 sudo docker run -v /home/ubuntu/workspace/cprojectnew/devtest/ABC.exe:/home/ubuntu/cbuild ubuntu:latest
-                k=sudo docker ps -a |head -2|tail -1|awk -F " " '{print $1}'
+                sudo docker ps -a |head -2|tail -1|awk -F " " '{print $1}'>cid
+                k=`cat cid`
                 sudo docker commit $k build:v2
                 sudo docker tag build:v2 deepatp/cbuild:1.0
                 sudo docker push deepatp/cbuild:1.0
