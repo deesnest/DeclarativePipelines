@@ -4,17 +4,11 @@ pipeline {
         stage('build1') {
             steps {
                 sh '''
-                if [ -f .git ] && [ -f java-tomcat-maven-example ]
-                then
+                 
                   ls -l
                 cd java-tomcat-maven-example
                 mvn install
-                else
-                  git init
-                  git clone https://github.com/deesnest/java-tomcat-maven-example.git
-                  cd java-tomcat-maven-example
-                  mvn install
-                 fi                 
+                  
                  '''
              }
         }
