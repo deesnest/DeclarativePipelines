@@ -1,0 +1,29 @@
+  
+pipeline {
+    agent {label "Agent C"}
+    stages {
+        stage('build1') {
+            steps {
+                sh '''
+                git init
+                git clone https://github.com/deesnest/devtest.git
+                git pull https://github.com/deesnest/devtest.git
+                make
+                git add *
+                git commit -m "added"
+                git config credential.helper store
+                git push https://github.com/deesnest/devtest.git
+                Username for 'https://github.com': deesnest
+                Password for 'https://USERNAME@github.com': deepaanu123
+                
+                      '''
+            }
+        }
+        
+        stage('build2') {
+            steps {
+              sh 'echo "successful"'
+            }
+        }
+    }
+}
