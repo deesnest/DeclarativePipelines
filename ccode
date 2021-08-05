@@ -22,7 +22,8 @@ pipeline {
                 gcc -c main.c fact.c palin.c rev.c sum.c
                 gcc -o ABC.exe main.o fact.o palin.o rev.o sum.o 
                 mkdir cbuild
-                cp ABC.exe ~/cbuild
+                path=$PWD
+                cp $path/ABC.exe $path/cbuild
                 echo "C project Build Successful"
                  '''
                
