@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                  
-                if [ ! -f .git ] && [! -d devtest ]
+                if [ ! -f .git ] && [ ! -d devtest ]
                 then
                 git init
                 git clone https://github.com/deesnest/devtest
