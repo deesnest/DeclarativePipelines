@@ -25,6 +25,7 @@ pipeline {
                 path=$PWD
                 cp $path/ABC.exe $path/cbuild
                 echo "C project Build Successful"
+                echo $PWD
                  '''
                
               }
