@@ -1,4 +1,4 @@
-
+//this is java project pipeline
 pipeline {
     agent none
    stages {
