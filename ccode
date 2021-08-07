@@ -1,4 +1,4 @@
-//this is for c project pipeline
+
 pipeline {
     agent none
     stages {
