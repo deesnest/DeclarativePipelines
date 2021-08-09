@@ -37,7 +37,7 @@ pipeline {
             steps {
             sh '''
                cd /home/ubuntu/workspace/pythonproject
-                sudo kubectl apply -f python.yaml 
+                sudo kubectl apply -f python.yaml --validate=false
                    
                  '''
                
