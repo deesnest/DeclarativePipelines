@@ -16,7 +16,6 @@ pipeline {
              }
         }
                         
-        
         stage('buildimage') {
         agent {label "kubeagent"}
             steps {
@@ -33,7 +32,17 @@ pipeline {
                
               }
         }
-       
+        stage('buildcluster') {
+        agent {label "kubeagent"}
+            steps {
+            sh '''
+               cd /home/ubuntu/workspace/pythonproject
+                sudo kubectl apply -f python.yaml 
+                   
+                 '''
+               
+              }
+        }
        }
        }
 
