@@ -3,9 +3,13 @@ pipeline{
 stages{
    agent {"kubeagent"}
 stage('docker')
-{
+{ 
+   steps {
     docker build -t myimage:1.0 deepatp/pythonrepo
     docker login --username deepatp --password rathna4582
     docker tag my-python:latest deepatp/pythonrepo
     docker push my-python:latest
+}
+}
+}
 }
