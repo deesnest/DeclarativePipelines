@@ -5,7 +5,7 @@ pipeline {
      agent {label "kubeagent"}
             steps {
                 sh '''
-                 
+                cd /home/ubuntu/workspace/pythonproject
                 if [ ! -f .git ] && [ ! -d pythonproject]
                 then
                 git init
@@ -21,6 +21,7 @@ pipeline {
         agent {label "kubeagent"}
             steps {
             sh '''
+               cd /home/ubuntu/workspace/pythonproject
                 sudo docker build -t my-python:latest /home/ubuntu/workspace/pythonproject/dockerfile
                 sudo docker tag my-python:latest deepatp/pythonrepo:1.0
                 sudo docker images
