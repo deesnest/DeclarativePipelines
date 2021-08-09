@@ -20,4 +20,4 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
-        restartPolicy: Always
+      restartPolicy: Always
