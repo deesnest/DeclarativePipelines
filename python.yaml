@@ -11,3 +11,4 @@ spec:
         port: 30081
         targetPort: 80
         protocol: TCP	
+restartPolicy: Always
