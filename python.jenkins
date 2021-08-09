@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                  
-                if [ ! -f .git ] && [ ! -d app]
+                if [ ! -f .git ] && [ ! -d pythonproject]
                 then
                 git init
                 git clone https://github.com/deesnest/DeclarativePipelines.git
