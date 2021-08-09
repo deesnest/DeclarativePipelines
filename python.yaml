@@ -8,6 +8,6 @@ spec:
     type: ClusterIP
     ports:
       - name: http
-      port: 30081
-      targetPort: 80
-      protocol: TCP	
+        port: 30081
+        targetPort: 80
+        protocol: TCP	
