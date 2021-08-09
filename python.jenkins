@@ -36,8 +36,8 @@ pipeline {
         agent {label "kubeagent"}
             steps {
             sh '''
-               cd /home/ubuntu/workspace/pythonproject
-                sudo kubectl apply -f python.yaml
+               cd /home/ubuntu/workspace/k8s
+                sudo kubectl apply -f deployment.yaml
                    
                  '''
                
