@@ -1,15 +1,39 @@
-pipeline{
-  agent none
-stages{
-   agent {"kubeagent"}
-stage('docker')
-{ 
-   steps {
-    docker build -t myimage:1.0 deepatp/pythonrepo
-    docker login --username deepatp --password rathna4582
-    docker tag my-python:latest deepatp/pythonrepo
-    docker push my-python:latest
-}
-}
-}
-}
+pipeline {
+    agent none
+   stages {
+     stage('gitinit') {
+     agent {label "kubeagent"}
+            steps {
+                sh '''
+                 
+                if [ ! -f .git ] && [ ! -d app]
+                then
+                git init
+                git clone https://github.com/deesnest/DeclarativePipelines.git
+                fi
+                  
+                 '''
+             }
+        }
+                        
+        
+        stage('buildimage') {
+        agent {label "kubeagent"}
+            steps {
+            sh '''
+                sudo docker build -t my-python:latest https://github.com/deesnest/DeclarativePipelines.git/dockerfile
+                sudo docker tag my-python:latest deepatp/pythonrepo:1.0
+                sudo docker images
+                sudo docker login --username deepatp --password rathna4582
+                sudo docker push deepatp/pythonrepo:1.0
+    
+                   
+                 '''
+               
+              }
+        }
+       
+       }
+       }
+
+ 
