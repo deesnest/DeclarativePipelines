@@ -1,4 +1,3 @@
-#this is for demo purpose
 pipeline {
     agent none
    stages {
